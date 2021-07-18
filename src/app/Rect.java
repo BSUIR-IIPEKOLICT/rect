@@ -1,4 +1,4 @@
-package com.loshica;
+package app;
 import java.util.Scanner;
 
 public class Rect {
