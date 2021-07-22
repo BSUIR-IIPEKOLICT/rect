@@ -27,23 +27,17 @@ public class Rect {
         return new Rect(w, h);
     }
 
-    public static float per(Rect rect) {
-        return 2 * rect.w + 2 * rect.h;
-    }
+    public static boolean contains(Rect rect1, Rect rect2) { return rect1.w <= rect2.w && rect1.h <= rect2.h; }
 
-    public static float area(Rect rect) {
-        return rect.w * rect.h;
-    }
+    public float per() { return 2 * this.w + 2 * this.h; }
 
-    public static boolean contains(Rect rect1, Rect rect2) {
-        return rect1.w <= rect2.w && rect1.h <= rect2.h;
-    }
+    public float area() { return this.w * this.h; }
 
-    public static float getW(Rect rect) {
-        return rect.w;
-    }
+    public void setW(float w) { this.w = w; }
 
-    public static float getH(Rect rect) {
-        return rect.h;
-    }
+    public void setH(float h) { this.h = h; }
+
+    public float getW() { return this.w; }
+
+    public float getH() { return this.h; }
 }

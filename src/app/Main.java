@@ -9,8 +9,8 @@ public class Main {
         Scanner in = new Scanner(System.in);
         Rect rect1 = Rect.create("\nСоздание 1 прямоугольника\n", in);
 
-        System.out.println("Периметр 1 прямоугольника: " + Rect.per(rect1));
-        System.out.println("Площадь 1 прямоугольника: " + Rect.area(rect1));
+        System.out.println("Периметр 1 прямоугольника: " + rect1.per());
+        System.out.println("Площадь 1 прямоугольника: " + rect1.area());
 
         Rect rect2 = Rect.create("\nСоздание 2 прямоугольника\n", in);
 
@@ -21,11 +21,16 @@ public class Main {
         }
 
         Rect rect3 = new Rect(356);
-        System.out.println("\nДлина 3 прямоугольника: " + Rect.getW(rect3));
-        System.out.println("Ширина 3 прямоугольника: " + Rect.getH(rect3));
+        System.out.println("\nДлина 3 прямоугольника: " + rect3.getW());
+        System.out.println("Ширина 3 прямоугольника: " + rect3.getH());
 
         Rect rect4 = new Rect();
-        System.out.println("\nДлина 4 прямоугольника: " + Rect.getW(rect4));
-        System.out.println("Ширина 4 прямоугольника: " + Rect.getH(rect4));
+        System.out.println("\nДлина 4 прямоугольника: " + rect4.getW());
+        System.out.println("Ширина 4 прямоугольника: " + rect4.getH());
+
+        Rect rect5 = new Rect(13, 63);
+        rect5.setW(42);
+        rect5.setH((float) 14.25);
+        System.out.println("\nРазмеры 5 прямоугольника: " + rect5.getW() + " x " + rect5.getH());
     }
 }
