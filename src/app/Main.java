@@ -30,7 +30,7 @@ public class Main {
 
         Rect rect5 = new Rect(13, 63);
         rect5.setW(42);
-        rect5.setH((float) 14.25);
+        rect5.setH(14.25);
         System.out.println("\nРазмеры 5 прямоугольника: " + rect5.getW() + " x " + rect5.getH());
     }
 }
