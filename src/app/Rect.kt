@@ -9,30 +9,38 @@ open class Rect {
     constructor(w: Double, h: Double) {
         this.w = w
         this.h = h
+        counter++
     }
 
     constructor(w: Double) {
         this.w = w
+        counter++
     }
 
-    constructor() {}
+    constructor() {
+        counter++
+    }
 
     constructor(w: Int, h: Int) {
         this.w = w.toDouble()
         this.h = h.toDouble()
+        counter++
     }
 
     constructor(w: Int) {
         this.w = w.toDouble()
+        counter++
     }
 
     constructor(w: Float, h: Float) {
         this.w = w.toDouble()
         this.h = h.toDouble()
+        counter++
     }
 
     constructor(w: Float) {
         this.w = w.toDouble()
+        counter++
     }
 
     fun per(): Double = 2 * w + 2 * h
@@ -40,6 +48,8 @@ open class Rect {
     fun area(): Double = w * h
 
     companion object {
+        var counter = 0
+
         fun create(text: String?, sc: Scanner): Rect {
             text?.let { println(text) }
 

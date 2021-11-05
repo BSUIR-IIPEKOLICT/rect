@@ -11,8 +11,8 @@ class Main {
             val sc = Scanner(System.`in`)
             val rect1 = Rect.create("\nСоздание 1 прямоугольника\n", sc)
 
-            println("Периметр 1 прямоугольника: ${rect1.per()}")
-            println("Площадь 1 прямоугольника: ${rect1.area()}")
+            println("Периметр 1 прямоугольника: ${ rect1.per() }")
+            println("Площадь 1 прямоугольника: ${ rect1.area() }")
 
             val rect2 = Rect.create("\nСоздание 2 прямоугольника\n", sc)
 
@@ -32,8 +32,15 @@ class Main {
             rectangles[2].h = 14.25
 
             rectangles.mapIndexed { i, r ->
-                println("Размеры ${i + 3} прямоугольника: ${r.w} x ${r.h}")
+                println(
+                    "Параметры ${ i + 3 } прямоугольника:" +
+                    "\n\tРазмеры: ${ r.w } x ${ r.h }" +
+                    "\n\tПериметр: ${ r.per() }" +
+                    "\n\tПлощадь: ${ r.area() }\n"
+                )
             }
+
+            println("Всего создано прямоуголтьников: ${ Rect.counter }")
         }
     }
 }
