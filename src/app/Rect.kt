@@ -1,7 +1,5 @@
 package app
 
-import java.util.*
-
 open class Rect {
     var w = 10.0
     var h = 10.0
@@ -43,22 +41,25 @@ open class Rect {
         counter++
     }
 
-    fun per(): Double = 2 * w + 2 * h
+    private fun per(): Double = 2 * w + 2 * h
 
-    fun area(): Double = w * h
+    private fun area(): Double = w * h
+
+    override fun toString(): String =
+        "размеры: ${ this.w } х ${ this.h }, периметр: ${ this.per() }, площадь: ${ this.area() }"
 
     companion object {
         var counter = 0
 
-        fun create(text: String?, sc: Scanner): Rect {
+        fun create(text: String?): Rect {
             text?.let { println(text) }
 
-            println("Введите длину прямоугольника: ")
-            val w = sc.nextDouble()
-            println("Введите высоту прямоугольника: ")
-            val h = sc.nextDouble()
+            print("Введите длину прямоугольника: ")
+            val w = readLine()
+            print("Введите высоту прямоугольника: ")
+            val h = readLine()
 
-            return Rect(w, h)
+            return if (w != null && h != null) Rect(w.toDouble(), h.toDouble()) else Rect()
         }
 
         fun contains(rect1: Rect, rect2: Rect): Boolean = rect1.w <= rect2.w && rect1.h <= rect2.h
