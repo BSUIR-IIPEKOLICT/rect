@@ -5,9 +5,8 @@ import java.text.MessageFormat;
 import app.interfaces.IReview;
 import app.shared.Templates;
 
-public class Review implements IReview {
+public class Review extends BaseModel implements IReview {
 
-    private final int id;
     private int roomId;
     private String author;
     private String content;
@@ -15,8 +14,7 @@ public class Review implements IReview {
     private static int counter = 0;
 
     public Review(int roomId, String author, String content) {
-        counter++;
-        this.id = counter;
+        super(counter);
         this.roomId = roomId;
         this.author = author;
         this.content = content;
@@ -62,11 +60,11 @@ public class Review implements IReview {
         return MessageFormat.format(Templates.review, this.id, this.roomId, this.author, this.content);
     }
 
-    public boolean equals(IReview obj) {
+    public boolean equals(Review obj) {
         return
-            this.id == obj.id() &&
-            this.roomId == obj.roomId() &&
-            this.author.equals(obj.author()) &&
-            this.content.equals(obj.content());
+            this.id() == obj.id() &&
+            this.roomId() == obj.roomId() &&
+            this.author().equals(obj.author()) &&
+            this.content().equals(obj.content());
     }
 }

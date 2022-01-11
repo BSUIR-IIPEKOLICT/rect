@@ -6,13 +6,12 @@ import app.interfaces.IReview;
 import app.interfaces.IReviewService;
 import app.models.Review;
 
-public class ReviewService implements IReviewService {
-    private final ArrayList<IReview> collection;
-    
+public class ReviewService extends BaseService<IReview> implements IReviewService {
+
     public ReviewService(ArrayList<IReview> collection) {
-        this.collection = collection;
+        super(collection);
     }
-    
+
     @Override
     public ArrayList<IReview> get(int roomId) {
         ArrayList<IReview> res = new ArrayList<>(this.collection);
@@ -32,11 +31,5 @@ public class ReviewService implements IReviewService {
         IReview review = this.collection.get(id - 1);
         review.setContent(content);
         return review;
-    }
-
-    @Override
-    public int delete(int id) {
-        this.collection.remove(id - 1);
-        return id;
     }
 }
